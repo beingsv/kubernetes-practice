@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: your-ingress
+  namespace: ingress-practice
+  labels:
+    app: portfolio
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: shiwam-vish.com
+      http:
+        paths:
+        - path: /portfolio
+          pathType: Prefix
+          backend:
+            service:
+              name: ingress-service
+              port:
+                number: 80
